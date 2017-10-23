@@ -51,8 +51,8 @@ def result(request):
 
 
 
-def login(request):
-    return render(request, 'paddleapp/login.html')
+def registration(request):
+    return render(request, 'paddleapp/registration.html')
 
 
 
@@ -62,13 +62,14 @@ def create(request):
     if len(errors):
         for field, message in errors.iteritems():
             error(request, message, extra_tags=field)
-        return redirect('/')
+        return redirect('/registration')
 
     User.objects.create(
         first_name= request.POST['first_name'],
         last_name= request.POST['last_name'],
         email= request.POST['email'],
     )
-    return redirect('/')
+    return redirect('/login')
+
 
 ################################LOGIN REGISTRATION#####################
