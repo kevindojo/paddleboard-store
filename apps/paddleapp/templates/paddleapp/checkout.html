@@ -1,0 +1,45 @@
+{% load static %}
+
+<html>
+    <title>
+
+
+    </title>
+    
+    <head>
+        <meta charset="UTF-8">
+            <style>
+                    p1 {
+                        margin-top: 20px;
+                        font-family: arial, sans-serif;
+                        border-collapse: collapse;
+                        width: 100%;
+                        color:grey;
+                        font-size: 30px;
+                        font-style: italic;
+                    }
+                    
+                    p{
+                        color:gray;
+                        font-style: italic;
+                        font-size: 30px;
+
+                    }
+                </style> 
+        
+    
+    <!-- <link rel="stylesheet" href="{% static 'paddleapp/css/main.css' %}" media="screen" title="no title"  charset="utf-8"> -->
+    </head>
+    <body>
+    <p1>Thank you for being a part of saving the marine life</p1>
+    <p>We will ship your paddelboard soon</p>
+    <!-- <p>We charged you credit card for {{total}}</p> -->
+    
+    <p>You have ordered {{request.session.counter}} items so far and spent {{request.session.total}} with Go Paddle.com!</p>
+    
+    <!-- <img src="Whale_shark_underwater_wallpapers.jpg.jpg" alt="Ocean life"> -->
+    <img src="{% static 'paddleapp/images/thankspage.jpg' %}" alt="logo.png"/>
+    <p>Thanks for shopping with Go Paddle</p>
+    </body>
+        
+    </html>

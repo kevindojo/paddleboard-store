@@ -1,0 +1,258 @@
+<html>
+    
+    <head>
+            {% load static %}
+            <link rel="stylesheet" href="{% static 'paddleapp/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+
+            header{
+                color:rgb(223, 111, 132);
+                font-size: 60px;
+
+
+            }
+
+            input {
+    background-color:#555555;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-left: 2px;
+}
+
+          select{
+              margin-left: 55px;
+          }
+
+        P{
+
+            color:grey;
+            margin-left: 70px;
+            font-size: 25px;
+            font-style: italic;
+        }
+        </style>
+
+    </head>
+    <header>Go Paddle   </header>
+    <p>A hand made paddleboard for protect our ocean</p>
+
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <!-- <div id="slideshow">
+            <div>
+                <img class="mySlides" src="{% static 'paddleapp/images/board-gallery-flood-04_3500_1600xauto.jpg' %}" alt="logo.png"/>
+            </div>
+            <div>
+                <img class="mySlides" src="{% static 'paddleapp/images/board-gallery-flood-03_3499_1600xauto.jpg' %}" alt="logo.png"/>
+            </div>
+            <div>
+                <img class="mySlides" src="{% static 'paddleapp/images/board-gallery-flood-05_3501_1600xauto.jpg' %}" alt="logo.png"/>
+            </div>
+         </div> -->
+
+
+
+
+    <div id="slideshow">
+            <div>
+    <header><img class="mySlides" src="{% static 'paddleapp/images/board-gallery-flood-04_3500_1600xauto.jpg' %}" alt="logo.png"/>
+            <!-- <img class="mySlides" src="{% static 'paddleapp/images/board-gallery-flood-03_3499_1600xauto.jpg' %}" alt="logo.png"/> 
+            <img class="mySlides" src="{% static 'paddleapp/images/board-gallery-flood-05_3501_1600xauto.jpg' %}" alt="logo.png"/> -->
+    </header>
+    <body>
+      
+                       <div id="middle" >
+                           <div class="middlesection">
+                                <img src="{% static 'paddleapp/images/d89d0cf3-a08d-4140-a419-5785eaf3cee1.jpeg' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                <p>Price:$1429.00</p>
+                                <form action='/buy' method='post'>
+                                    {% csrf_token %}
+                                    <select name='quantity'>
+                                       <option>1</option>
+                                       <option>2</option>
+                                       <option>3</option>
+                                    </select>
+                                    <input type='hidden' name='product' value='1' />
+                                    <input type='submit' value='Buy!' />
+                                  </form>
+                           </div>
+                           <div class="middlesection">
+                                <img src="{% static 'paddleapp/images/57de34a0c67d48.27433759.png' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                <p>Price:$1890.00</p>
+                                <form action='/buy' method='post'>
+                                    {% csrf_token %}
+                                    <select name='quantity'>
+                                       <option>1</option>
+                                       <option>2</option>
+                                       <option>3</option>
+                                    </select>
+                                    <input type='hidden' name='product' value='2' />
+                                    <input type='submit' value='Buy!' />
+                                  </form>
+
+                           </div>
+                           <div class="middlesection">
+                                <img src="{% static 'paddleapp/images/2017-ISLE-Lotus-LG-404x600.jpg' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                <p>Price:$1543.00</p>
+                                <form action='/buy' method='post'>
+                                    {% csrf_token %}
+                                    <select name='quantity'>
+                                       <option>1</option>
+                                       <option>2</option>
+                                       <option>3</option>
+                                    </select>
+                                    <input type='hidden' name='product' value='3' />
+                                    <input type='submit' value='Buy!' />
+                                  </form>
+
+                           </div>
+                       </div>
+    
+                       
+
+                   
+                       <div id="middle" >
+                            <div class="middlesection">
+                                 <img src="{% static 'paddleapp/images/d89d0cf3-a08d-4140-a419-5785eaf3cee1.jpeg' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                 <p>Price:$1429.00</p>
+                                 <form action='/buy' method='post'>
+                                     {% csrf_token %}
+                                     <select name='quantity'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                     </select>
+                                     <input type='hidden' name='product' value='4' />
+                                     <input type='submit' value='Buy!' />
+                                   </form>
+                            </div>
+                            <div class="middlesection">
+                                    <img src="{% static 'paddleapp/images/2017-ISLE-Lotus-LG-404x600.jpg' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                 
+                                 <p>Price:$1890.00</p>
+                                 <form action='/buy' method='post'>
+                                     {% csrf_token %}
+                                     <select name='quantity'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                     </select>
+                                     <input type='hidden' name='product' value='5' />
+                                     <input type='submit' value='Buy!' />
+                                   </form>
+ 
+                            </div>
+                            <div class="middlesection">
+                                    <img src="{% static 'paddleapp/images/57de34a0c67d48.27433759.png' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                 <p>Price:$1543.00</p>
+                                 <form action='/buy' method='post'>
+                                     {% csrf_token %}
+                                     <select name='quantity'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                     </select>
+                                     <input type='hidden' name='product' value='6' />
+                                     <input type='submit' value='Buy!' />
+                                   </form>
+ 
+                            </div>
+                        </div>
+
+
+
+                       <div id="middle" >
+                            <div class="middlesection">
+                                 <img src="{% static 'paddleapp/images/d89d0cf3-a08d-4140-a419-5785eaf3cee1.jpeg' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                 <p>Price:$1429.00</p>
+                                 <form action='/buy' method='post'>
+                                     {% csrf_token %}
+                                     <select name='quantity'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                     </select>
+                                     <input type='hidden' name='product' value='1' />
+                                     <input type='submit' value='Buy!' />
+                                   </form>
+                            </div>
+                            <div class="middlesection">
+                                 <img src="{% static 'paddleapp/images/57de34a0c67d48.27433759.png' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                 <p>Price:$1890.00</p>
+                                 <form action='/buy' method='post'>
+                                     {% csrf_token %}
+                                     <select name='quantity'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                     </select>
+                                     <input type='hidden' name='product' value='2' />
+                                     <input type='submit' value='Buy!' />
+                                   </form>
+ 
+                            </div>
+                            <div class="middlesection">
+                                 <img src="{% static 'paddleapp/images/2017-ISLE-Lotus-LG-404x600.jpg' %}" style="display: inline" alt="#" width="250" height="400"alt="logo.png"/>
+                                 <p>Price:$1543.00</p>
+                                 <form action='/buy' method='post'>
+                                     {% csrf_token %}
+                                     <select name='quantity'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                     </select>
+                                     <input type='hidden' name='product' value='3' />
+                                     <input type='submit' value='Buy!' />
+                                   </form>
+ 
+                            </div>
+                        </div>
+     
+                        
+                       <div> 
+                           <div id="bottomp" >
+                           <p>Each paddleboard that we sale, we will donate 20% of our profit to protect marine life </p>
+                           <P>Enjoy The Ocean</P>
+                           </div>
+                               <img  id="bottomimg" src="{% static 'paddleapp/images/p02z815d.jpg' %}" alt="whale">
+                        </div>
+                       
+    
+        <!-- <form action='/amadon/buy' method='post'>
+            {% csrf_token %}
+            <select name='quantity'>
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+            </select>
+            <input type='hidden' name='product_id' value='1015' />
+            <input type='submit' value='Buy!' />
+          </form> -->
+    
+    </body>
+    </html>
+    
+    

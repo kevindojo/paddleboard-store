@@ -1,0 +1,44 @@
+/* * {
+
+    background-image: url("../images/background.jpg");
+} */
+h1 {
+    color: rgb(187, 61, 84);
+}
+p{
+    color:gray;
+    margin-left: 70px;
+    font-size: 55px;
+}
+#middle{
+    width: 100%;
+
+}
+.middlesection{
+    display: inline-block;
+    margin: 89px 84px;
+}
+#bottomtext{
+
+    display: inline-block;
+}
+#bottomp{
+    width: 30%;
+  
+    
+    display: inline-block;
+    margin-left: 42px;
+    
+    
+    
+    
+}
+#bottomimg{
+    width: 50%;
+    background-color: blue;
+    display: inline-block;
+    margin-left: 194px;
+
+}
+
+
