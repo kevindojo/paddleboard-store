@@ -2,33 +2,47 @@
 <html lang= "en">
   <head>
     <meta charset="utf-8">
-    <title>Users</title>
+    <title>Add a product</title>
     <meta name="description" content= "Insert description of webpage">
   </head>
   <body>
-    <h2>Users</h2>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>Full Name</th>
-        <th>Email</th>
-        <th>Created At</th>
-        <th>Actions</th>
-      </tr>
-        {% for user in users %}
-      <tr>
-        <td>{{user.id}}</td>
-        <td>{{user.first_name}} {{user.last_name}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.created_at}}</td>
-        <td>
-          <a href="/users/{{user.id}}">Show</a>
-          <a href="/users/{{user.id}}/edit">Edit</a>
-          <a href="/users/{{user.id}}/destroy">Delete</a>
-        </td>
-      </tr>
+    <div class"addproduct">
+      <h2>Add a new product</h2>
+      <a href="/">Return to Store</a>
+      {% if messages %}
+        {% for message in messages%}
+      <p {% if message.tags %} class="{{ message.tags }}" {% endif %} >
+          {{ message }}
+      </p>
         {% endfor %}
-    </table>
-    <a href="/users/new">Add a new user</a>
+      {% endif %}
+      <form action="/products/create" method="post">
+        {% csrf_token %}
+        <p>Name:<input type="text" name="name"></p>
+        <textarea name="description" cols="50" rows="3"></textarea>
+        <p><input type="submit" value="Add"></p>
+      </form>
+    </div>
+    <div class="dispayproduct">
+      <h2>Products</h2>
+      <table>
+        <tr>
+          <th>Product Name</th>
+          <th>Description</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+          {% for product in products %}
+        <tr>
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.created_at}}</td>
+          <td>
+            <a href="/products/destroy/{{product.id}}">Remove</a>
+          </td>
+        </tr>
+          {% endfor %}
+      </table>
+    </div>
   </body>
 </html>
