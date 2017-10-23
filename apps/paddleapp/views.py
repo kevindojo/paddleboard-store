@@ -38,5 +38,37 @@ def buy(request):
     return redirect('/result')
 
 def result(request):
-    return render(request,"paddleapp/checkout.html")
+    return render("paddleapp/checkout.html")
 
+
+
+
+
+
+################################LOGIN REGISTRATION#####################
+
+
+
+
+
+def login(request):
+    return render(request, 'paddleapp/login.html')
+
+
+
+
+def create(request):
+    errors= User.objects.validate(request.POST)
+    if len(errors):
+        for field, message in errors.iteritems():
+            error(request, message, extra_tags=field)
+        return redirect('/')
+
+    User.objects.create(
+        first_name= request.POST['first_name'],
+        last_name= request.POST['last_name'],
+        email= request.POST['email'],
+    )
+    return redirect('/')
+
+################################LOGIN REGISTRATION#####################
