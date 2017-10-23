@@ -1,6 +1,11 @@
-from django.shortcuts import render, HttpResponse, redirect
+from __future__ import unicode_literals
+from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from .models import *
+from django.contrib.messages import error
+
 def index(request):
-    
+
     return render(request, "paddleapp/index.html")
 
 def buy(request):
@@ -9,10 +14,10 @@ def buy(request):
     except KeyError:
         request.session['counter'] = 0
 
-    
+
 
     request.session['counter'] += int(request.POST['quantity'])
-    
+
     price = {
         "1" : 1429.00,
         "2" : 1890.00,
@@ -31,14 +36,14 @@ def buy(request):
         request.session['total_purchase'] = request.session["total"]
 
     else:
-        request.session['total_purchase'] += request.session['total'] 
-        
-        
+        request.session['total_purchase'] += request.session['total']
+
+
     request.session.modified = True
     return redirect('/result')
 
 def result(request):
-    return render("paddleapp/checkout.html")
+    return render(request, "paddleapp/checkout.html")
 
 
 
@@ -48,28 +53,58 @@ def result(request):
 ################################LOGIN REGISTRATION#####################
 
 
-
+def display(request):
+    context= {
+        'users': User.objects.all()
+    }
+    return render(request, 'paddleapp/display.html', context)
 
 
 def registration(request):
     return render(request, 'paddleapp/registration.html')
 
-
-
+def new(request):
+    return render(request, 'restful_users/new.html')
 
 def create(request):
     errors= User.objects.validate(request.POST)
     if len(errors):
         for field, message in errors.iteritems():
             error(request, message, extra_tags=field)
-        return redirect('/registration')
+        return redirect('/users/new')
 
     User.objects.create(
         first_name= request.POST['first_name'],
         last_name= request.POST['last_name'],
         email= request.POST['email'],
     )
-    return redirect('/login')
+    return redirect('/users')
 
+def edit(request,user_id):
+    context= {
+        'user': User.objects.get(id=user_id)
+    }
+    return render(request, 'restful_users/edit.html', context)
 
-################################LOGIN REGISTRATION#####################
+def show(request,user_id):
+    context= {
+        'user': User.objects.get(id=user_id)
+    }
+    return render(request, 'restful_users/show.html', context)
+
+def destroy(request,user_id):
+    User.objects.get(id=user_id).delete()
+    return HttpResponseRedirect('/users')
+
+def update(request,user_id):
+    errors= User.objects.validate(request.POST)
+    if len(errors):
+        for field, message in errors.iteritems():
+            error(request, message, extra_tags=field)
+        return redirect('/users/{}/edit'.format(user_id))
+    user_update = User.objects.get(id=user_id)
+    user_update.first_name= request.POST['first_name']
+    user_update.last_name= request.POST['last_name']
+    user_update.email= request.POST['email']
+    user_update.save()
+    return redirect('/users')

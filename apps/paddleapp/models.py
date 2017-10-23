@@ -24,11 +24,10 @@ class User(models.Model):
     first_name= models.CharField(max_length=255)
     last_name= models.CharField(max_length=255)
     email= models.CharField(max_length=255)
+    password= models.CharField(max_length=255)
     created_at= models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
     objects = UserManager()
-    def __repr__(self):
-        return "id:{} first_name:{} last_name:{} email:{} created_at:{} updated_at:{}".format(self.id,self.first_name,self.last_name,self.email,self.created_at,self.updated_at)
 
 class Address(models.Model):
     street=models.CharField(max_length=255)
